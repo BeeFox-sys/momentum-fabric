@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "momentum",
-  "version": "${version}",
+  "version": "1.0.0",
 
   "name": "Momentum",
   "description": "An alternitve to vein mining, a fabric port of Momentum by camcam_burger",
@@ -9,12 +9,11 @@
     "Beefox"
   ],
   "contact": {
-    "homepage": "",
-    "sources": ""
+    "sources": "https://github.com/BeeFox-sys/momentum-fabric"
   },
 
-  "license": "CC0-1.0",
-  "icon": "assets/modid/icon.png",
+  "license": "MIT",
+  "icon": "assets/momentum/logo.png",
 
   "environment": "*",
   "entrypoints": {
