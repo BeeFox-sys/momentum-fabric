@@ -3,7 +3,6 @@ package xyz.beefox.momentum;
 import java.util.Optional;
 
 import net.minecraft.block.BlockState;
-import net.minecraft.entity.data.DataTracker;
 
 public interface MomentumPlayerData {
 
