@@ -18,7 +18,7 @@ import xyz.beefox.momentum.MomentumPlayerData;
 
 @Mixin (AbstractBlock.class)
 public class MomentumDeltaMixin {
-    @Inject (at = @At("TAIL"), method = "calcBlockBreakingDelta()F", cancellable = true)
+    @Inject (at = @At("TAIL"), method = "calcBlockBreakingDelta", cancellable = true)
     public void calcBlockBreakingDelta(BlockState state, PlayerEntity player, BlockView world, BlockPos pos, CallbackInfoReturnable info) {
         if (!player.isSpectator() && !player.isCreative() && !player.getMainHandStack().isEmpty() && EnchantmentHelper.get(player.getMainHandStack()).containsKey(Momentum.MOMENTUM) && player.getMainHandStack().isSuitableFor(state)) 
         {

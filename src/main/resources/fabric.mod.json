@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "momentum",
-  "version": "1.0.0",
+  "version": "1.0.1",
 
   "name": "Momentum",
   "description": "An alternitve to vein mining, a fabric port of Momentum by camcam_burger",
