@@ -14,7 +14,5 @@ public interface MomentumPlayerData {
     int momentum_getBlockComboCount ();
 
     void momentum_setBlockComboCount (int count);
-
-    // DataTracker dataTracker;
     
 }

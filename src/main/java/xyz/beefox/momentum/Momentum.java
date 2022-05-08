@@ -46,7 +46,6 @@ public class Momentum implements ModInitializer {
 			Optional<BlockState> last = ((MomentumPlayerData) player).momentum_getLastBlockBroken();
 			if(last.isPresent()){
 				if(state == last.get()){
-					// player.sendMessage(new LiteralText(((MomentumPlayerData) player).momentum_getBlockComboCount() + " Block Combo!"), true);
 					((MomentumPlayerData) player).momentum_setBlockComboCount(((MomentumPlayerData) player).momentum_getBlockComboCount()+1);
 
 				} else {

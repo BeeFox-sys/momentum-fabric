@@ -43,38 +43,10 @@ abstract class MomentumDataMixin extends LivingEntity implements MomentumPlayerD
     @Inject (at = @At("Tail"), method="tick()V")
     private void tick(CallbackInfo info){
         if(!world.isClient()){
-            // ((PlayerEntity)(Object) this).sendMessage(new LiteralText(((MomentumPlayerData) this).momentum_getBlockComboCount() + ""), false);
-            double speed = this.getMovementSpeed();
-            // ((PlayerEntity)(Object) this).sendMessage(new LiteralText(speed*20+""), true);
-            ((PlayerEntity)(Object) this).sendMessage(new LiteralText(this.prevX != this.getX()?"Moving":"Still"), true);
-            if(!EnchantmentHelper.get(((PlayerEntity)(Object) this).getMainHandStack()).containsKey(Momentum.MOMENTUM)){
+        if(!EnchantmentHelper.get(((PlayerEntity)(Object) this).getMainHandStack()).containsKey(Momentum.MOMENTUM)){
                 if(((MomentumPlayerData) this).momentum_getBlockComboCount() > 0){
                     ((MomentumPlayerData) this).momentum_setBlockComboCount(0);
                     this.playSound(SoundEvents.ITEM_AXE_WAX_OFF, 1f, 2f);
-                }
-            }
-            if(speed > 0.03){
-                if(!(
-                    
-                this.isSneaking()
-
-                ||(
-                    this.hasStatusEffect(StatusEffects.HASTE) &&
-                    this.getStatusEffect(StatusEffects.HASTE).getAmplifier() == 0 &&
-                    !this.isSprinting()
-                )
-
-                ||(
-                    this.hasStatusEffect(StatusEffects.HASTE) &&
-                    this.getStatusEffect(StatusEffects.HASTE).getAmplifier() > 0
-                )
-                
-                )){
-                    // ((PlayerEntity)(Object) this).sendMessage(new LiteralText("Test"),false);
-                    if(((MomentumPlayerData) this).momentum_getBlockComboCount() > 0){
-                        // ((MomentumPlayerData) this).momentum_setBlockComboCount(0);
-                        this.playSound(SoundEvents.ITEM_AXE_WAX_OFF, 1f, 2f);
-                    }
                 }
             }
         }

@@ -40,7 +40,6 @@ public class MomentumDeltaMixin {
                     }
                     info.setReturnValue(speedFactor);
                 } 
-                // player.sendMessage(new LiteralText("last = "+ last.toString()), false);
             }
         } 
     }
