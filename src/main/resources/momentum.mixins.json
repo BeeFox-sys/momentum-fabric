@@ -1,0 +1,15 @@
+{
+    "required": true,
+    "minVersion": "0.8",
+    "package": "xyz.beefox.momentum.mixins",
+    "compatibilityLevel": "JAVA_8",
+    "mixins": [
+    ],
+    "client": [
+      "MomentumDataMixin",
+      "MomentumDeltaMixin"
+    ],
+    "injectors": {
+      "defaultRequire": 1
+    }
+  }
