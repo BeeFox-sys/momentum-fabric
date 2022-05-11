@@ -61,9 +61,10 @@ public class Momentum implements ModInitializer {
 			if (ABANDONED_MINESHAFT_LOOT_ID.equals(id) || SIMPLE_DUNGON_LOOT_ID.equals(id)) {
 				FabricLootPoolBuilder poolBuilder = FabricLootPoolBuilder.builder()
 					.withCondition(RandomChanceLootCondition.builder(0.25f).build())
-					.with(ItemEntry.builder(Items.ENCHANTED_BOOK).weight(1))
+					.with(ItemEntry.builder(Items.BOOK).weight(1))
 					.withFunction(new EnchantRandomlyLootFunction.Builder().add(MOMENTUM).build());
 					table.pool(poolBuilder);
+					
 			}
 		});
 
