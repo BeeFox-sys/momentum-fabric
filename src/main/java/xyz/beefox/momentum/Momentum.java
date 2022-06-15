@@ -4,12 +4,12 @@ import java.util.Optional;
 
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.event.player.PlayerBlockBreakEvents;
-import net.fabricmc.fabric.api.loot.v1.FabricLootPoolBuilder;
-import net.fabricmc.fabric.api.loot.v1.event.LootTableLoadingCallback;
+import net.fabricmc.fabric.api.loot.v2.LootTableEvents;
 import net.minecraft.block.BlockState;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.item.Items;
+import net.minecraft.loot.LootPool;
 import net.minecraft.loot.LootTables;
 import net.minecraft.loot.condition.RandomChanceLootCondition;
 import net.minecraft.loot.entry.ItemEntry;
@@ -57,13 +57,13 @@ public class Momentum implements ModInitializer {
 		// Loot Spawning
 	
 
-		LootTableLoadingCallback.EVENT.register((resourceManager, lootManager, id, table, setter) -> {
+		LootTableEvents.MODIFY.register((resourceManager, lootManager, id, table, setter) -> {
 			if (ABANDONED_MINESHAFT_LOOT_ID.equals(id) || SIMPLE_DUNGON_LOOT_ID.equals(id)) {
-				FabricLootPoolBuilder poolBuilder = FabricLootPoolBuilder.builder()
-					.withCondition(RandomChanceLootCondition.builder(0.25f).build())
+				LootPool.Builder poolBuilder = LootPool.builder()
+					.conditionally(RandomChanceLootCondition.builder(0.25f).build())
 					.with(ItemEntry.builder(Items.BOOK).weight(1))
-					.withFunction(new EnchantRandomlyLootFunction.Builder().add(MOMENTUM).build());
-					table.pool(poolBuilder);
+					.apply(new EnchantRandomlyLootFunction.Builder().add(MOMENTUM).build());
+				table.pool(poolBuilder);
 					
 			}
 		});
